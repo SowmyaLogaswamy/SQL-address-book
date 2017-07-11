@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="EntryTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2017-07-11T22:27:43" hostname="epicodus-122.local" time="0.136">
+  <properties/>
+  <testcase name="save_returnsTrueIfNamesAreSame" classname="EntryTest" time="0.113"/>
+  <testcase name="getAddress_instantiatesWithAddress_Seattle" classname="EntryTest" time="0.0"/>
+  <testcase name="getName_instantiatesWithName_Betty" classname="EntryTest" time="0.0"/>
+  <testcase name="getPhoneNumber_instantiateWithPhoneNumber_546" classname="EntryTest" time="0.0"/>
+  <testcase name="all_returnsAllInstancesOfEntry_true" classname="EntryTest" time="0.022"/>
+  <testcase name="equals_returnsTrueIfNamesAreSame" classname="EntryTest" time="0.0"/>
+  <testcase name="Entry_instantiatesValuesCorrectly_true" classname="EntryTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
