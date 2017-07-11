@@ -23,9 +23,16 @@ public int getPhoneNumber() {
 public String getAddress() {
   return address;
 }
-// public static Entry find(int id) {
-//
-// }
+public static Entry find(int id) {
+  try(Connection con = DB.sql2o.open()) {
+    String sql = "SELECT * FROM entries where id=:id";
+    Entry entry = con.createQuery(sql)
+    .addParameter("id", id)
+    .executeAndFetchFirst(Entry.class);
+    return entry;
+    }
+
+}
 public static List<Entry> all() {
   String sql = "SELECT * FROM entries";
   try(Connection con = DB.sql2o.open()) {
@@ -39,7 +46,11 @@ public boolean equals(Object otherEntry) {
     return false;
   } else {
     Entry newEntry = (Entry) otherEntry;
-    return this.getName().equals(newEntry.getName());
+    return this.getName().equals(newEntry.getName()) &&
+      this.getPhoneNumber() == newEntry.getPhoneNumber() &&
+      this.getAddress().equals(newEntry.getAddress()) &&
+      this.getId() == newEntry.getId();
+
   }
 }
 
@@ -54,5 +65,9 @@ public void save() {
       .getKey();
   }
 }
+
+public int getId() {
+    return id;
+  }
 
 }

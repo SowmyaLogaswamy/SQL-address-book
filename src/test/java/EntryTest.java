@@ -8,13 +8,13 @@ public class EntryTest {
     DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/address_book_test", null, null);
   }
 
-  // @After
-  // public void tearDown() {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "DELETE FROM entries *;";
-  //     con.createQuery(sql).executeUpdate();
-  //   }
-  // }
+  @After
+  public void tearDown() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "DELETE FROM entries *;";
+      con.createQuery(sql).executeUpdate();
+    }
+  }
 
   @Test
   public void Entry_instantiatesValuesCorrectly_true() {
@@ -71,5 +71,19 @@ public class EntryTest {
     assertEquals(myEntry.getId(), savedEntry.getId());
   }
   @Test
+  public void getId_entriesInstantiatesWithAnID() {
+    Entry myEntry = new Entry("Sowmi", 223, "Sandigo");
+    myEntry.save();
+    assertTrue(myEntry.getId() >0);
+  }
+
+  @Test
+  public void find_returnsEntryWithSameId_secondEntry() {
+    Entry myEntry1 = new Entry("Sow", 7890, "london");
+    myEntry1.save();
+    Entry myEntry2 = new Entry("Kar", 3456, "Ireland");
+    myEntry2.save();
+    assertEquals(Entry.find(myEntry2.getId()), myEntry2);
+  }
 
 }
