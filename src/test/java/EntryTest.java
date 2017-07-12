@@ -55,6 +55,10 @@ public class EntryTest {
     Entry myEntry = new Entry("Sowmya", 434, "Redmond");
     myEntry.save();
     assertTrue(Entry.all().get(0).equals(myEntry));
+    // assertEquals("Sowmya", Entry.all().get(0).getName());
+    // assertEquals(434, Entry.all().get(0).getPhoneNumber());
+    // assertEquals(myEntry.getId(), Entry.all().get(0).getId());
+    // assertEquals("Redmond", Entry.all().get(0).getAddress());
   }
 
   @Test
